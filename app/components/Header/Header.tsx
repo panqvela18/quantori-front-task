@@ -14,8 +14,16 @@ export default async function Header() {
   return (
     <header className="px-[150px] flex justify-between items-center py-4 max-lg:px-5">
       <div className="flex items-center justify-between w-full">
-        <Image src={logo} width={50} height={50} alt="logo" className="mr-4" />
-        <Navigation />
+        <div className="flex items-center">
+          <Image
+            src={logo}
+            width={50}
+            height={50}
+            alt="logo"
+            className="mr-4"
+          />
+          <Navigation />
+        </div>
         <MobileHeader cookie={cookie} />
       </div>
       <div className="max-lg:hidden">{cookie ? <Logout /> : <Login />}</div>

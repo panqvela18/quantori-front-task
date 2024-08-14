@@ -17,7 +17,7 @@ export default function MobileHeader({ cookie }: { cookie: any }) {
     <div>
       <button
         onClick={toggleMenu}
-        className="border-2 border-[#68847c] p-2 rounded-xl"
+        className="border-2 border-[#68847c] p-2 rounded-xl hidden max-lg:block"
       >
         <Image src={burgerMenu} width={30} height={30} alt="burger-menu" />
       </button>

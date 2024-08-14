@@ -1,18 +1,18 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
-  const [active, setActive] = useState("home");
+  const pathname = usePathname();
 
   return (
     <nav>
       <ul className="flex items-center border border-[#68847c] rounded-full p-2 max-lg:hidden">
-        <li className="mr-3" onClick={() => setActive("home")}>
+        <li className="mr-3">
           <Link
             href="/"
-            className={`px-4 py-2 rounded-full  ${
-              active === "home"
+            className={`px-4 py-2 rounded-full ${
+              pathname === "/"
                 ? "bg-[#68847c] text-white"
                 : "bg-transparent text-[#68847c]"
             }`}
@@ -20,11 +20,11 @@ export default function Navigation() {
             Home
           </Link>
         </li>
-        <li className="mr-3" onClick={() => setActive("contact")}>
+        <li className="mr-3">
           <Link
-            href="/"
-            className={`px-4 py-2 rounded-full  ${
-              active === "contact"
+            href="/contact"
+            className={`px-4 py-2 rounded-full ${
+              pathname === "/contact"
                 ? "bg-[#68847c] text-white"
                 : "bg-transparent text-[#68847c]"
             }`}
@@ -32,11 +32,11 @@ export default function Navigation() {
             Contact
           </Link>
         </li>
-        <li className="mr-3" onClick={() => setActive("about")}>
+        <li className="mr-3">
           <Link
-            href="/"
-            className={`px-4 py-2 rounded-full  ${
-              active === "about"
+            href="/about"
+            className={`px-4 py-2 rounded-full ${
+              pathname === "/about"
                 ? "bg-[#68847c] text-white"
                 : "bg-transparent text-[#68847c]"
             }`}
