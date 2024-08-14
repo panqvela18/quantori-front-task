@@ -35,7 +35,7 @@ export default function MobileHeader({ cookie }: { cookie: any }) {
             <Link
               onClick={() => setIsOpen(false)}
               href={"/contact"}
-              className="text-white text-sm p-6 border-b-[3px] w-full flex justify-center hover:text-gray-200"
+              className="text-white font text-sm p-6 border-b-[3px] w-full flex justify-center hover:text-gray-200"
             >
               Contact
             </Link>
