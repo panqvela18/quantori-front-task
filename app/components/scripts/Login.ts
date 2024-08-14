@@ -15,12 +15,14 @@ export async function handleLogin(username: string, password: string) {
       });
       const data = await response.json(); 
       console.log('Response:', data);
-      const cookieStore = cookies();
-      cookieStore.set("token",data?.token)
- 
-      if (!response) {
+      if(data){
+          const cookieStore = cookies();
+          cookieStore.set("token",data?.token)
+      }else{
         console.error("Login failed:", data);
       }
+ 
+
     } catch (error) {
       console.error("Error:", error);
       return false;

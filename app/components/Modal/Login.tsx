@@ -25,7 +25,13 @@ export default function Login() {
     <>
       <button
         onClick={handleOpen}
-        className="px-6 py-2 bg-[#68847c] text-white rounded-lg"
+        className="px-6 py-2 bg-[#68847c] text-white rounded-lg max-lg:hidden"
+      >
+        Login
+      </button>
+      <button
+        className="px-6 py-2 bg-transparent text-white rounded-lg hidden max-lg:block"
+        onClick={handleOpen}
       >
         Login
       </button>
