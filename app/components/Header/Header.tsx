@@ -1,8 +1,17 @@
+"use server";
 import Image from "next/image";
 import logo from "../../../public/profile.jpg";
 import Link from "next/link";
+import Login from "../Modal/Login";
+import { cookies } from "next/headers";
+import Logout from "./Logout";
 
-export default function Header() {
+export default async function Header() {
+  const cookieStore = cookies();
+  const cookie = cookieStore.get("token");
+
+  
+
   return (
     <header className="px-[150px] flex justify-between items-center py-4">
       <div className="flex items-center">
@@ -36,11 +45,7 @@ export default function Header() {
           </ul>
         </nav>
       </div>
-      <div>
-        <button className="px-6 py-2 bg-[#68847c] text-white rounded-lg">
-          Login
-        </button>
-      </div>
+      <div>{cookie ? <Logout /> : <Login />}</div>
     </header>
   );
 }
