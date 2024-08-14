@@ -1,16 +1,22 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
-import burgerMenu from "../../../../public/burger.svg";
+import Link from "next/link";
 import Image from "next/image";
+import burgerMenu from "../../../../public/burger.svg";
 import Login from "../../Modal/Login";
 import Logout from "../Logout";
 
 export default function MobileHeader({ cookie }: { cookie: any }) {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [loginOpen, setLoginOpen] = useState<boolean>(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLoginClick = () => {
+    setIsOpen(false);
+    setLoginOpen(true);
   };
 
   return (
@@ -46,10 +52,22 @@ export default function MobileHeader({ cookie }: { cookie: any }) {
             >
               About
             </Link>
-            {cookie ? <Logout /> : <Login />}
+            {cookie ? (
+              <div>
+                <Logout />
+              </div>
+            ) : (
+              <button
+                onClick={handleLoginClick}
+                className="text-white text-sm p-6 border-b-[3px] w-full flex justify-center hover:text-gray-200 bg-transparent"
+              >
+                Login
+              </button>
+            )}
           </nav>
         </div>
       )}
+      <Login open={loginOpen} onClose={() => setLoginOpen(false)} />
     </div>
   );
 }

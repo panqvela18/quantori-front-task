@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import Logout from "./Logout";
 import Navigation from "./Navigation/Navigation";
 import MobileHeader from "./MobileHeader/MobileHeader";
+import LoginLogoutClient from "./LoginLogoutClient";
 
 export default async function Header() {
   const cookieStore = cookies();
@@ -26,7 +27,9 @@ export default async function Header() {
         </div>
         <MobileHeader cookie={cookie} />
       </div>
-      <div className="max-lg:hidden">{cookie ? <Logout /> : <Login />}</div>
+      <div className="max-lg:hidden">
+        <LoginLogoutClient cookie={cookie}/>
+      </div>
     </header>
   );
 }
